@@ -25,7 +25,7 @@ void setup() {
     BLE.advertise();
 
     prop.attach(D3, 1000, 2000);
-    prop.writeMicroseconds(1500);
+    prop.writeMicroseconds(1400);
     delay(7000);
 }
 
@@ -36,7 +36,7 @@ void loop() {
         while (central.connected()) {  
             if (propCharacteristic.written()) {
                 unsigned char pval = propCharacteristic.value();
-                prop.writeMicroseconds(pval * 10 + 1000);
+                prop.writeMicroseconds(pval * 3 + 1400);
             }        
             if (driveCharacteristic.written()) {
                 unsigned char dval = driveCharacteristic.value();
